@@ -1,0 +1,61 @@
+<div class="mx-5 my-3 text-center">
+  <h2>Lista de usuários</h2>
+
+  <h3 *ngIf="!users.length">Nenhum usuário cadastrado!</h3>
+
+  <div class="form-filter my-4 m-auto w-75">
+    <form [formGroup]="filterUserForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3 row">
+        <div class="col">
+          <input class="form-control" onkeypress="onSubmit()" type="text" name="name" formControlName="name" placeholder="Nome">
+        </div>
+        <div class="col">
+          <input class="form-control" type="text" name="email" formControlName="email" placeholder="E-mail">
+        </div>
+        <div class="col">
+          <input class="form-control" onkeypress="onSubmit()" type="text" name="username" formControlName="username" placeholder="Username">
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+          <button class="btn btn-success" type="submit">Filtrar</button>
+          <button class="btn btn-primary" type="reset">Limpar</button>
+          <a routerLink="/users/user-form"><button class="btn btn-primary" type="reset">Novo usuário</button></a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <table *ngIf="users.length" class="table table-dark table-striped table-bordered border-secondary">
+      <thead>
+        <tr class="table-active">
+          <th>ID</th>
+          <th>Username</th>
+          <th>Senha</th>
+          <th>Ativo</th>
+          <th>Data de cadastro</th>
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | paginate: {itemsPerPage: counter, currentPage: pag}">
+          <td>{{user.id}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.is_enable ? 'Sim' : 'Não'}}</td>
+          <td>{{user.register_date}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.surname}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <pagination-controls (pageChange)="pag = $event"></pagination-controls>
+    </div>
+  </div>
+
+</div>

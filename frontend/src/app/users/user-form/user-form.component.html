@@ -1,0 +1,50 @@
+<div class="mx-5 my-3 text-center">
+  <h2>Formulário de usuário</h2>
+
+  <div class="form-filter my-4 w-75 text-center m-auto">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" ngNativeValidate>
+      <div class="mb-3 row">
+        <div class="col">
+          <label class="form-label">Username:</label>
+          <input class="form-control" type="text" name="username" formControlName="username" placeholder="Username" required>
+        </div>
+        <div class="col">
+          <label class="form-label">Senha:</label>
+          <input class="form-control" type="password" name="password" formControlName="password" placeholder="Senha" required>
+        </div>
+        <div class="col">
+          <label class="form-label">Ativo:</label>
+          <select class="form-select" type="text" name="is_enable" formControlName="is_enable" placeholder="Ativo" required>
+            <option value="1">Sim</option>
+            <option value="0">Não</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <div class="col">
+          <label class="form-label">Nome:</label>
+          <input class="form-control" type="text" name="name" formControlName="name" placeholder="Nome" required>
+        </div>
+        <div class="col">
+          <label class="form-label">Sobrenome:</label>
+          <input class="form-control" type="text" name="surname" formControlName="surname" placeholder="Sobrenome" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <div class="col">
+          <label class="form-label">E-mail:</label>
+          <input class="form-control" type="email" name="email" formControlName="email" placeholder="E-mail" required>
+        </div>
+        <div class="col">
+          <label class="form-label">Telefone:</label>
+          <input class="form-control" type="number" name="phone" formControlName="phone" placeholder="Telefone" required>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+          <button class="btn btn-primary" type="reset">Limpar</button>
+          <button class="btn btn-success" type="submit">Cadastrar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

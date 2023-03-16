@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+}
+
+nav {
+  background-color:rgb(61, 61, 61);
+  height: 50px;
+  margin: 0 auto;
+  display: table;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  color: white;
+  font-size: 20px;
+}
+
+ul, li {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 10px;
+}
+
+ul, a {
+  text-decoration: none;
+  color: white;
+}
